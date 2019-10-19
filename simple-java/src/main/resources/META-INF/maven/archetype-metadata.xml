@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="basic">
+
+	<requiredProperties>
+		<requiredProperty key="project-name" />
+		<requiredProperty key="property-file-name">
+			<defaultValue>Resource-default</defaultValue>
+		</requiredProperty>
+
+		<!--JUnit version to use in generated project -->
+		<requiredProperty key="junit-version">
+			<defaultValue>4.12</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+
+	<!--Add new fileset for resources -->
+	<!--Set filtered="true" to process files in that directory as templates -->
+	<!--Set packaged="false" to remove package folder structure from resource 
+		directory -->
+	<fileSets>
+		<fileSet filtered="true">
+			<directory>src/main/resources</directory>
+
+			<!--Filters example -->
+			<includes>
+				<include>*.txt</include>
+				<include>*.properties</include>
+			</includes>
+			<excludes>
+				<exclude>**/*.xml</exclude>
+			</excludes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="true">
+			<directory>src/main/java</directory>
+		</fileSet>
+		<fileSet filtered="true" packaged="true">
+			<directory>src/test/java</directory>
+		</fileSet>
+		<fileSet filtered="true">
+			<directory>src/test/resources</directory>
+		</fileSet>
+		<fileSet>
+			<directory />
+			<includes>
+				<include>readme.md</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+</archetype-descriptor>
